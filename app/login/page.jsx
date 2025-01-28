@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react';
-import {Button, Checkbox, Form, Input} from 'antd';
+import {Button, Checkbox, Form, Input, Radio} from 'antd';
 import Link from "next/link";
 import Image from "next/image";
 
@@ -21,6 +21,7 @@ const Login = () => {
                         alt="woxs logo"
                         height="30"
                         width="120"
+                        style={{objectFit: "contain", paddingBottom: "10px"}}
                         priority={true}
                     />
                     <p className="text-sm py-1">Welcome back.Please enter your details below to login</p>
@@ -30,9 +31,16 @@ const Login = () => {
                         layout="vertical"
                         onFinish={onFinish}
                     >
+                        <Form.Item name="userType" label="Login as" >
+                            <Radio.Group>
+                                <Radio value="employer">Employer</Radio>
+                                <Radio value="employee">Employee</Radio>
+                            </Radio.Group>
+                        </Form.Item>
+
                         <Form.Item
                             label="Username"
-                            name="username"
+                            name="Name"
                             rules={[{required: true, message: 'Please input your username!'}]}
                         >
                             <Input/>
